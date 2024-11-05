@@ -1,4 +1,4 @@
-# pacergame-rulebook-with-gpt
+# [pacergame-rulebook-with-gpt](https://github.com/UniBreakfast/pacergame-rulebook-with-gpt)
 
 ## **PacerGame Rulebook**
 
