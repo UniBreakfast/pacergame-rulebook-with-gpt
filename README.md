@@ -31,7 +31,6 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
   - **Note:** If your confidence level is less than 2, consider seeking guidance from a qualified professional before starting.
 - **Earning CP:**
   - **Per Todo:** Gain CP immediately upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia).
-  - **Quest Completion:** Receive pledged CP back upon successful quest completion.
 - **Spending CP:**
   - **Pledging for Quests:** Spend CP equal to the quest's cost when initiating new quests.
 
@@ -54,12 +53,13 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
   - **Consequences:**
     - **Loss of Pledge:** Lose pledged CP upon quest failure.
     - **Difficulty Adjustment:** Increase the activity's difficulty by 1 (can exceed 10) if the quest duration was equal to or longer than your initial confidence level.
-    - **No Overlaps with New Quests:** Completed and failed days of the quest cannot overlap with another quest for the same activity.
+    - **No Overlaps with New Quests:** Days of completed and failed todos of a finished quest or any days of an unfinished quest cannot overlap with another quest for the same activity.
     - **Discarded Todos:** Remaining todos from the failed quest are discarded and cannot be reported or rewarded.
 - **Quest Completion:**
   - **Receive Pledged CP Back:** Upon completing the quest, get your pledged CP returned.
   - **Difficulty Adjustment:** Decrease the activity's difficulty by 1 (not below 1) if the quest duration was equal to or longer than your initial confidence level.
   - **Inertia Phase Initiation:** Option to continue the activity in the inertia phase.
+  - **Definition of Finished Quest:** A quest is considered finished if it is either completed or failed, even if inertia continues.
 
 ### **3.3 Inertia**
 
@@ -70,6 +70,9 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
   - **Rewards:**
     - **CP Reward per Todo:** Remains constant during inertia, equal to the reward on the last day of the quest.
     - **Immediate Rewards:** CP earned during inertia is gained immediately upon completion of each todo.
+  - **Overlapping with New Quests:**
+    - **No Overlaps Allowed:** Reported todo days of inertia cannot overlap with new quest days.
+    - **Unreported Todos:** If you choose to start a new quest that would overlap with unreported inertia days, those unreported days are discarded.
   - **Breaking the Streak:**
     - **No Losses:** No CP losses upon ending inertia since the pledge was already returned.
     - **Consecutive Day Count Reset:** If you miss a day, the streak ends, and your consecutive day count is reset.
@@ -78,7 +81,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Consecutive Day Count:**
   - **Within a Quest:** Days are counted consecutively for reward calculation.
-  - **Between Quests (Same Activity):** If you start a new quest for the same activity without missing a day (excluding days of inertia), the consecutive day count continues from where it left off at the end of the last quest.
+  - **Between Quests (Same Activity):** If you start a new quest for the same activity without missing a day (excluding days from inertia), the consecutive day count continues from where it left off at the end of the last quest.
   - **Excluding Inertia Days:** Days spent in the inertia phase are **not** counted towards the consecutive day count for reward calculations in new quests.
 - **Starting New Quests Without Breaking Streaks:**
   - **Seamless Transition:** If you start a new quest for the same activity on the next day after completing a quest or inertia phase **without missing a day**, your day count for reward calculation resumes from the end of the last quest (excluding inertia days).
@@ -86,8 +89,9 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Example:**
   - **First Quest Completed:** 8-day quest completed successfully.
   - **Inertia Phase:** 5 days of continued activity (days 9-13 for activity tracking but not for reward calculation in future quests).
-  - **New Quest Initiated:** Start a new quest on day 14 without missing a day.
-  - **Consecutive Day Count for Rewards:** The new quest's first todo is considered day **9** (not day 14) for reward calculation.
+  - **Starting New Quest:** You decide to start a new quest on day 14 without missing a day.
+  - **Overlap Restriction:** Since reported todos during inertia cannot overlap with new quest days, you must ensure that inertia ends before starting the new quest.
+  - **Consecutive Day Count for Rewards:** The new quest's first todo is considered day **9** for reward calculation.
   - **Rewards:** Calculated as `floor(√9) = 3 CP`, capped by the activity's difficulty at the time the new quest is taken.
 
 ## **4. Example Scenario**
@@ -119,24 +123,25 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Quest Completion:**
   - **Receive Pledged CP Back:** 56 CP.
   - **Difficulty Adjustment:** Decrease difficulty to 6 (since duration ≥ initial confidence level).
+- **Definition of Finished Quest:** Quest is considered finished upon completion.
 
 ### **Inertia Phase**
 
 - **Duration:** 5 days (days 9-13).
 - **Rewards:** Each day rewards 2 CP (same as the last quest day).
 - **Streak Maintenance:** Continue the activity without breaking the streak for activity tracking purposes.
-- **Note:** Days in inertia are not counted towards consecutive day count for reward calculations in future quests.
+- **Overlap Restriction:** Reported inertia days cannot overlap with new quest days.
+- **Starting New Quest:** If you decide to start a new quest, you must end inertia (i.e., stop reporting inertia todos that would overlap with the new quest).
 
 ### **Second Quest**
 
-- **Start Date:** Day 14 (after inertia phase, without missing a day).
+- **Start Date:** Day 14 (after ending inertia without missing a day).
 - **Duration:** Your choice (e.g., 5 days).
 - **New Difficulty:** 6 (after adjustment from previous quest).
 - **Cost:** `6 (difficulty) × 5 (days) = 30 CP`.
 - **Pledge:** 30 CP.
 - **Consecutive Day Count for Rewards:** Resumes from day 9 (since inertia days are excluded).
 - **Daily Todos and Rewards:**
-  - **Days 9-13 (Inertia):** Rewards during inertia are fixed at 2 CP per day.
   - **Day 9 (First day of new quest):** `floor(√9) = 3 CP`
   - **Day 10:** `floor(√10) = 3 CP`
   - **Day 11:** `floor(√11) = 3 CP`
@@ -184,10 +189,13 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 ### **5.6 No Overlapping Quests for the Same Activity**
 
-- **Rule:** Cannot start a new quest for the same activity that overlaps with days from a previous quest.
+- **Rule:** Days of completed and failed todos of a finished quest or any days of an unfinished quest cannot overlap with another quest for the same activity.
 - **Failed Quest Days:**
-  - **Completed Days:** Cannot be overlapped.
-  - **Failed and Remaining Days:** Discarded and cannot be reported or rewarded.
+  - **Completed and Failed Todos:** Cannot be overlapped.
+  - **Remaining Unfinished Days:** Discarded and cannot be reported or rewarded.
+- **Inertia Days:**
+  - **Reported Inertia Days:** Cannot overlap with new quest days.
+  - **Unreported Inertia Days:** Discarded if they would overlap with a new quest.
 
 ## **6. Progression and Growth**
 
