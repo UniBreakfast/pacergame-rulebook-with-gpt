@@ -30,7 +30,8 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
   - **Estimation at Game Start:** Assess your confidence level from **2 to 10** to determine your starting CP.
   - **Note:** If your confidence level is less than 2, consider seeking guidance from a qualified professional before starting.
 - **Earning CP:**
-  - **Per Todo:** Gain CP immediately upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia).
+  - **Per Todo:** Gain CP upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia).
+  - **Immediate Rewards:** All completed todo rewards are immediate.
 - **Spending CP:**
   - **Pledging for Quests:** Spend CP equal to the quest's cost when initiating new quests.
 
@@ -46,7 +47,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Todos and Completion:**
   - **Daily Commitment:** Complete the activity's required amount each day.
   - **Verification:** Honestly confirm completion of each todo.
-  - **Immediate CP Rewards:** Gain CP immediately upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia).
+  - **Per Todo CP Rewards:** Gain CP upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia).
   - **Maximum Reward per Todo:** Capped by the activity's difficulty at the time the quest is taken.
 - **Quest Failure:**
   - **Failure Reporting:** Explicitly report any failure to complete a todo.
@@ -67,15 +68,14 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Rules:**
   - **Activity Continuation:** Continue performing the same activity daily.
   - **Streak Maintenance:** Maintain your consecutive day count for the purpose of continuing the activity, but note that days in inertia are not counted towards reward calculations in future quests.
-  - **Rewards:**
-    - **CP Reward per Todo:** Remains constant during inertia, equal to the reward on the last day of the quest.
-    - **Immediate Rewards:** CP earned during inertia is gained immediately upon completion of each todo.
-  - **Overlapping with New Quests:**
-    - **No Overlaps Allowed:** Reported todo days of inertia cannot overlap with new quest days.
-    - **Unreported Todos:** If you choose to start a new quest that would overlap with unreported inertia days, those unreported days are discarded.
-  - **Breaking the Streak:**
-    - **No Losses:** No CP losses upon ending inertia since the pledge was already returned.
-    - **Consecutive Day Count Reset:** If you miss a day, the streak ends, and your consecutive day count is reset.
+- **Rewards:**
+  - **CP Reward per Todo:** Remains constant during inertia, equal to the reward on the last day of the quest.
+- **Overlapping with New Quests:**
+  - **No Overlaps Allowed:** Reported todo days of inertia cannot overlap with new quest days.
+  - **Unreported Todos:** If you choose to start a new quest that would overlap with unreported inertia days, those unreported days are discarded.
+- **Breaking the Streak:**
+  - **No Losses:** No CP losses upon ending inertia since the pledge was already returned.
+  - **Consecutive Day Count Reset:** If you miss a day, the streak ends, and your consecutive day count is reset.
 
 ### **3.4 Streaks and Consecutive Days**
 
@@ -109,7 +109,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Pledge:** 56 CP.
 - **Daily Todos and Rewards:**
   - **Days 1-8:** Complete run each day.
-    - **Rewards:** 
+    - **Rewards:**
       - Day 1: `floor(√1) = 1 CP`
       - Day 2: `floor(√2) = 1 CP`
       - Day 3: `floor(√3) = 1 CP`
@@ -136,7 +136,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 ### **Second Quest**
 
 - **Start Date:** Day 14 (after ending inertia without missing a day).
-- **Duration:** Your choice (e.g., 5 days).
+- **Duration:** 5 days.
 - **New Difficulty:** 6 (after adjustment from previous quest).
 - **Cost:** `6 (difficulty) × 5 (days) = 30 CP`.
 - **Pledge:** 30 CP.
