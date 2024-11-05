@@ -32,6 +32,8 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Completion:** Marked by a daily checkmark when the activity's required amount is completed.
 
+  - **Failure Reporting:** Players must explicitly report if they fail to complete a todo, resulting in the quest's failure.
+
 - **Confidence Points (CP):**
 
   - **Initial CP:** Determined subjectively by the player's self-assessed confidence level on a scale from 1 to 10.
@@ -86,7 +88,9 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Daily Commitment:** Each day of the quest requires the player to complete the todo, which involves performing the activity's required amount.
 
-  - **Completion Verification:** Players honestly assess and confirm the completion of each day's todo.
+  - **Completion Verification:** Players honestly assess and confirm the completion of each day's todo by marking a checkmark.
+
+  - **Failure Reporting:** If a player fails to complete a todo, they must explicitly report the failure, resulting in the quest's failure.
 
 - **Completing a Quest:**
 
@@ -100,7 +104,11 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Quest Failure:**
 
-  - **Loss of Pledge:** If a player fails to complete a todo on any day, the quest fails, and the pledged CP is lost.
+  - **Explicit Reporting:** Players must explicitly report when they fail to complete a todo.
+
+  - **Loss of Pledge:** If a player reports a failure, the quest fails, and the pledged CP is lost.
+
+  - **Opportunity for New Quests:** Failing a quest is not the end—players can undertake the same or new quests in the future as they accumulate more CP.
 
   - **Streak Reset:** The streak for that activity resets, and no further CP can be earned through inertia until a new quest is initiated.
 
@@ -119,6 +127,10 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Spending CP:**
 
   - CP is spent when pledging for new quests, calculated based on the activity's difficulty and quest duration.
+
+- **Accumulating CP After Failure:**
+
+  - Players can accumulate CP from other ongoing quests or by starting new, affordable quests to rebuild their CP balance.
 
 #### **3.4 Inertia**
 
@@ -162,31 +174,29 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Day 3:** Complete run. Reward: floor(√3) = 1 CP.
 
-  - **Day 4:** Complete run. Reward: floor(√4) = 2 CP.
+  - **Day 4:** **Failed to Complete Run.**
 
-  - **Day 5:** Complete run. Reward: floor(√5) = 2 CP.
+    - **Failure Reporting:** Player explicitly reports the failure.
 
-- **Total CP Earned from Todos:** 7 CP.
+    - **Quest Failure:** Pledged 15 CP is lost.
 
-- **Quest Completion:**
+    - **Total CP Earned Before Failure:** 1 + 1 + 1 = 3 CP.
 
-  - Player successfully completes the quest and gets back the pledged 15 CP.
+- **After Quest Failure:**
 
-  - **Total CP After Quest:** Initial CP - 15 (pledge) + 7 (todos) + 15 (returned pledge) = Initial CP + 7 CP.
+  - **CP Balance:** Initial CP - 15 (pledge) + 3 (todos) = Initial CP - 12 CP.
 
-- **Inertia Phase:**
+  - **Opportunity to Try Again:** Player can start a new quest when they have enough CP.
 
-  - **Continuation:** Player continues running 2 km daily without pledging more CP.
+- **Starting a New Quest:**
 
-  - **Daily Reward:** CP reward remains at 2 CP per day (same as the reward on the last day of the quest).
-
-  - **Streak Maintenance:** The inertia phase continues until a day is missed.
+  - The player may undertake smaller quests to rebuild CP or wait until they accumulate enough CP from other activities.
 
 ### **5. Guidelines and Principles**
 
 - **Honesty and Integrity:**
 
-  - The game relies on players being truthful about completing todos during quests and inertia.
+  - The game relies on players being truthful about completing todos and reporting failures during quests and inertia.
 
 - **Self-Assessment:**
 
@@ -195,6 +205,12 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Risk and Reward:**
 
   - The CP system incentivizes commitment, as failing a quest results in the loss of pledged CP.
+
+- **Embracing Failure:**
+
+  - Failing a quest is not the end. It's an opportunity to reassess and try again.
+
+  - Players can undertake new quests to regain lost CP and continue progressing toward their endeavors.
 
 - **Encouragement of Multiple Quests:**
 
@@ -205,6 +221,10 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Accumulating CP:**
 
   - Completing quests and maintaining streaks through inertia allows players to accumulate CP.
+
+- **Rebuilding After Failure:**
+
+  - Players can rebuild their CP balance by starting new quests that fit within their current CP availability.
 
 - **Taking on Greater Challenges:**
 
@@ -233,6 +253,12 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Balancing Commitments:**
 
   - Players should balance the difficulty and number of quests with their real-life capacities to avoid overcommitment.
+
+- **Positive Outlook on Failure:**
+
+  - Failing a quest provides valuable insight into personal limits and areas for improvement.
+
+  - Players are encouraged to view setbacks as learning opportunities.
 
 - **Community and Support:**
 
