@@ -27,10 +27,10 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 ### **3.1 Confidence Points (CP)**
 
 - **Initial CP Assessment:**
-  - **Estimation at Game Start:** Assess your confidence level from 2 to 10 to determine your starting CP.
+  - **Estimation at Game Start:** Assess your confidence level from **2 to 10** to determine your starting CP.
   - **Note:** If your confidence level is less than 2, consider seeking guidance from a qualified professional before starting.
 - **Earning CP:**
-  - **Per Todo:** Gain CP immediately upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count.
+  - **Per Todo:** Gain CP immediately upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia).
   - **Quest Completion:** Receive pledged CP back upon successful quest completion.
 - **Spending CP:**
   - **Pledging for Quests:** Spend CP equal to the quest's cost when initiating new quests.
@@ -47,7 +47,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Todos and Completion:**
   - **Daily Commitment:** Complete the activity's required amount each day.
   - **Verification:** Honestly confirm completion of each todo.
-  - **Immediate CP Rewards:** Gain CP immediately upon completing each todo.
+  - **Immediate CP Rewards:** Gain CP immediately upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia).
   - **Maximum Reward per Todo:** Capped by the activity's difficulty at the time the quest is taken.
 - **Quest Failure:**
   - **Failure Reporting:** Explicitly report any failure to complete a todo.
@@ -59,40 +59,43 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Quest Completion:**
   - **Receive Pledged CP Back:** Upon completing the quest, get your pledged CP returned.
   - **Difficulty Adjustment:** Decrease the activity's difficulty by 1 (not below 1) if the quest duration was equal to or longer than your initial confidence level.
-  - **Inertia Phase Initiation:** Option to continue the activity in inertia phase.
+  - **Inertia Phase Initiation:** Option to continue the activity in the inertia phase.
 
 ### **3.3 Inertia**
 
 - **Definition:** The phase after completing a quest, allowing continuation of the same activity without pledging additional CP.
 - **Rules:**
   - **Activity Continuation:** Continue performing the same activity daily.
-  - **Streak Maintenance:** Maintain your consecutive day count from the quest.
+  - **Streak Maintenance:** Maintain your consecutive day count for the purpose of continuing the activity, but note that days in inertia are not counted towards reward calculations in future quests.
   - **Rewards:**
-    - **CP Reward per Todo:** Remains constant, equal to the reward on the last day of the quest.
-    - **Capped by Original Difficulty:** Maximum reward per todo remains capped by the activity's difficulty at the time the quest was taken.
+    - **CP Reward per Todo:** Remains constant during inertia, equal to the reward on the last day of the quest.
+    - **Immediate Rewards:** CP earned during inertia is gained immediately upon completion of each todo.
   - **Breaking the Streak:**
     - **No Losses:** No CP losses upon ending inertia since the pledge was already returned.
-    - **Streak Reset:** If you miss a day, the streak ends, and future todos are treated as new quests or activities.
+    - **Consecutive Day Count Reset:** If you miss a day, the streak ends, and your consecutive day count is reset.
 
 ### **3.4 Streaks and Consecutive Days**
 
-- **Consecutive Day Count:** The total number of consecutive days you've performed the activity, including days from previous quests and inertia phases if the streak wasn't broken.
+- **Consecutive Day Count:**
+  - **Within a Quest:** Days are counted consecutively for reward calculation.
+  - **Between Quests (Same Activity):** If you start a new quest for the same activity without missing a day (excluding days of inertia), the consecutive day count continues from where it left off at the end of the last quest.
+  - **Excluding Inertia Days:** Days spent in the inertia phase are **not** counted towards the consecutive day count for reward calculations in new quests.
 - **Starting New Quests Without Breaking Streaks:**
-  - **Seamless Transition:** If you start a new quest for the same activity on the next day after completing a quest or inertia phase, your day count continues.
-  - **Reward Calculation:** The day's todo is considered the next in sequence (e.g., 9th day), and rewards are calculated accordingly.
+  - **Seamless Transition:** If you start a new quest for the same activity on the next day after completing a quest or inertia phase **without missing a day**, your day count for reward calculation resumes from the end of the last quest (excluding inertia days).
+  - **Reward Calculation:** The first day's todo in the new quest is considered the next in sequence from the last quest day count (e.g., if the last quest ended on day 8, the new quest starts at day 9 for reward purposes).
 - **Example:**
   - **First Quest Completed:** 8-day quest completed successfully.
-  - **Inertia Phase:** 5 days of continued activity.
+  - **Inertia Phase:** 5 days of continued activity (days 9-13 for activity tracking but not for reward calculation in future quests).
   - **New Quest Initiated:** Start a new quest on day 14 without missing a day.
-  - **Consecutive Day Count:** The new quest's first todo is considered day 14.
-  - **Rewards:** Calculated using the total consecutive day count.
+  - **Consecutive Day Count for Rewards:** The new quest's first todo is considered day **9** (not day 14) for reward calculation.
+  - **Rewards:** Calculated as `floor(√9) = 3 CP`, capped by the activity's difficulty at the time the new quest is taken.
 
 ## **4. Example Scenario**
 
 **Endeavor:** Improve Physical Fitness
 
 - **Activity:** Run 2 kilometers.
-  - **Difficulty:** 7.
+  - **Initial Difficulty:** 7.
 
 ### **First Quest**
 
@@ -102,19 +105,48 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Pledge:** 56 CP.
 - **Daily Todos and Rewards:**
   - **Days 1-8:** Complete run each day.
-    - **Rewards:** Day 1: 1 CP, ..., Day 8: 2 CP (since `floor(√8) = 2`), capped at difficulty 7.
-- **Total CP Earned from Todos:** Sum of daily rewards.
+    - **Rewards:** 
+      - Day 1: `floor(√1) = 1 CP`
+      - Day 2: `floor(√2) = 1 CP`
+      - Day 3: `floor(√3) = 1 CP`
+      - Day 4: `floor(√4) = 2 CP`
+      - Day 5: `floor(√5) = 2 CP`
+      - Day 6: `floor(√6) = 2 CP`
+      - Day 7: `floor(√7) = 2 CP`
+      - Day 8: `floor(√8) = 2 CP`
+    - **Note:** Rewards are capped at the activity's difficulty.
+- **Total CP Earned from Todos:** 13 CP.
 - **Quest Completion:**
   - **Receive Pledged CP Back:** 56 CP.
   - **Difficulty Adjustment:** Decrease difficulty to 6 (since duration ≥ initial confidence level).
-- **Inertia Phase:**
-  - **Duration:** 5 days.
-  - **Rewards:** Each day rewards 2 CP (same as the last quest day), capped at original difficulty 7.
-  - **Streak Maintenance:** Consecutive day count continues.
-- **Starting New Quest Without Breaking Streak:**
-  - **New Quest Duration:** Any desired length.
-  - **Consecutive Day Count:** Continues from previous total (e.g., day 14).
-  - **Rewards:** Calculated using the new day count (e.g., `floor(√14)`), capped at current activity difficulty.
+
+### **Inertia Phase**
+
+- **Duration:** 5 days (days 9-13).
+- **Rewards:** Each day rewards 2 CP (same as the last quest day).
+- **Streak Maintenance:** Continue the activity without breaking the streak for activity tracking purposes.
+- **Note:** Days in inertia are not counted towards consecutive day count for reward calculations in future quests.
+
+### **Second Quest**
+
+- **Start Date:** Day 14 (after inertia phase, without missing a day).
+- **Duration:** Your choice (e.g., 5 days).
+- **New Difficulty:** 6 (after adjustment from previous quest).
+- **Cost:** `6 (difficulty) × 5 (days) = 30 CP`.
+- **Pledge:** 30 CP.
+- **Consecutive Day Count for Rewards:** Resumes from day 9 (since inertia days are excluded).
+- **Daily Todos and Rewards:**
+  - **Days 9-13 (Inertia):** Rewards during inertia are fixed at 2 CP per day.
+  - **Day 9 (First day of new quest):** `floor(√9) = 3 CP`
+  - **Day 10:** `floor(√10) = 3 CP`
+  - **Day 11:** `floor(√11) = 3 CP`
+  - **Day 12:** `floor(√12) = 3 CP`
+  - **Day 13:** `floor(√13) = 3 CP`
+  - **Note:** Rewards are capped at the new activity difficulty of 6.
+- **Total CP Earned from Todos in Second Quest:** 15 CP.
+- **Quest Completion:**
+  - **Receive Pledged CP Back:** 30 CP.
+  - **Difficulty Adjustment:** Decrease difficulty to 5 (since duration ≥ initial confidence level).
 
 ## **5. Guidelines and Principles**
 
@@ -137,7 +169,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Conditions:**
   - **Quest Duration Requirement:** Adjustments apply only if the quest duration was equal to or longer than your initial confidence level.
 - **Effect on Rewards:**
-  - **Reward Cap:** Changes in difficulty do not affect the reward cap until the end of the current inertia phase.
+  - **Reward Cap During Inertia:** Changes in difficulty do not affect the reward cap until the end of the current inertia phase.
 
 ### **5.4 Starting Over**
 
