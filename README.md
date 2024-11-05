@@ -15,9 +15,18 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 ### **2.2 Activities (AS)**
 
-- **Creation:** Specific tasks you can perform to advance your endeavors. You can create activities at any time.
-- **Measurement Units:** Quantified using appropriate units (e.g., minutes, pages, kilometers).
-- **Difficulty Assignment:** Assign a subjective difficulty level from 1 to 10 upon creation.
+- **Creation:**
+  - **Specific Tasks with Defined Amounts:** When creating an activity, specify a specific amount using appropriate units (e.g., minutes, pages, kilometers). This defines the exact requirement for the activity.
+  - **Example:** 
+    - "Walk in the park for **10 minutes**"
+    - "Read **20 pages** of a book"
+    - "Run **5 kilometers**"
+- **Difficulty Assignment:**
+  - **Based on Specific Amount:** Assign a subjective difficulty level from 1 to 10, considering the specific amount you've set for the activity.
+  - **Example:**
+    - "Walk in the park for 10 minutes" might be difficulty **3**
+    - "Walk in the park for 30 minutes" might be difficulty **6**
+    - "Walk in the park for 90 minutes" might be difficulty **10**
 - **Modification Rules:**
   - **No Modifications During Ongoing Quests:** Activities cannot be modified while associated quests are active.
   - **Post-Quest Modifications:** Allowed after quests conclude but do not retroactively affect past quests or calculations.
@@ -38,14 +47,14 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 ### **3.2 Quests (QS)**
 
 - **Starting a Quest:**
-  - **Select an Activity:** Choose an activity to form the basis of the quest.
+  - **Select an Activity:** Choose an activity from your list to form the basis of the quest.
   - **Determine Start Date:** Decide when the quest begins—today (only for quests longer than one day), tomorrow, or the day after.
   - **Determine Duration:** Decide the quest's duration in days, based on your goals and available CP.
   - **Calculate Cost:** `Quest Cost = Activity Difficulty × Quest Duration`.
   - **Pledge CP:** Pledge CP equal to the quest's cost to initiate it.
   - **Overlap Restrictions:** No overlapping quests for the same activity are allowed.
 - **Todos and Completion:**
-  - **Daily Commitment:** Complete the activity's required amount each day.
+  - **Daily Commitment:** Complete the activity's specific amount each day as defined when the activity was created.
   - **Verification:** Honestly confirm completion of each todo.
   - **Per Todo CP Rewards:** Gain CP upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia).
   - **Maximum Reward per Todo:** Capped by the activity's difficulty at the time the quest is taken.
@@ -66,7 +75,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Definition:** The phase after completing a quest, allowing continuation of the same activity without pledging additional CP.
 - **Rules:**
-  - **Activity Continuation:** Continue performing the same activity daily.
+  - **Activity Continuation:** Continue performing the same activity daily, using the specific amount defined when the activity was created.
   - **Streak Maintenance:** Maintain your consecutive day count for the purpose of continuing the activity, but note that days in inertia are not counted towards reward calculations in future quests.
 - **Rewards:**
   - **CP Reward per Todo:** Remains constant during inertia, equal to the reward on the last day of the quest.
@@ -86,79 +95,110 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Starting New Quests Without Breaking Streaks:**
   - **Seamless Transition:** If you start a new quest for the same activity on the next day after completing a quest or inertia phase **without missing a day**, your day count for reward calculation resumes from the end of the last quest (excluding inertia days).
   - **Reward Calculation:** The first day's todo in the new quest is considered the next in sequence from the last quest day count (e.g., if the last quest ended on day 8, the new quest starts at day 9 for reward purposes).
-- **Example:**
-  - **First Quest Completed:** 8-day quest completed successfully.
-  - **Inertia Phase:** 5 days of continued activity (days 9-13 for activity tracking but not for reward calculation in future quests).
-  - **Starting New Quest:** You decide to start a new quest on day 14 without missing a day.
-  - **Overlap Restriction:** Since reported todos during inertia cannot overlap with new quest days, you must ensure that inertia ends before starting the new quest.
-  - **Consecutive Day Count for Rewards:** The new quest's first todo is considered day **9** for reward calculation.
-  - **Rewards:** Calculated as `floor(√9) = 3 CP`, capped by the activity's difficulty at the time the new quest is taken.
 
 ## **4. Example Scenario**
 
-**Endeavor:** Improve Physical Fitness
+**Endeavor:** Enhance Physical Well-being
 
-- **Activity:** Run 2 kilometers.
-  - **Initial Difficulty:** 7.
+### **Activities:**
+
+1. **Walk in the Park for 10 Minutes**
+   - **Difficulty:** 3
+2. **Walk in the Park for 30 Minutes**
+   - **Difficulty:** 6
+3. **Walk in the Park for 90 Minutes**
+   - **Difficulty:** 10
 
 ### **First Quest**
 
-- **Duration:** 8 days.
-- **Start Date:** Tomorrow.
-- **Cost:** `7 (difficulty) × 8 (days) = 56 CP`.
-- **Pledge:** 56 CP.
-- **Daily Todos and Rewards:**
-  - **Days 1-8:** Complete run each day.
-    - **Rewards:**
-      - Day 1: `floor(√1) = 1 CP`
-      - Day 2: `floor(√2) = 1 CP`
-      - Day 3: `floor(√3) = 1 CP`
-      - Day 4: `floor(√4) = 2 CP`
-      - Day 5: `floor(√5) = 2 CP`
-      - Day 6: `floor(√6) = 2 CP`
-      - Day 7: `floor(√7) = 2 CP`
-      - Day 8: `floor(√8) = 2 CP`
-    - **Note:** Rewards are capped at the activity's difficulty.
-- **Total CP Earned from Todos:** 13 CP.
-- **Quest Completion:**
-  - **Receive Pledged CP Back:** 56 CP.
-  - **Difficulty Adjustment:** Decrease difficulty to 6 (since duration ≥ initial confidence level).
-- **Definition of Finished Quest:** Quest is considered finished upon completion.
+- **Activity:** Walk in the Park for **30 Minutes**
+- **Difficulty:** 6
+- **Duration:** 5 days
+- **Start Date:** Tomorrow
+- **Cost:** `6 (difficulty) × 5 (days) = 30 CP`
+- **Pledge:** 30 CP
 
-### **Inertia Phase**
+**Daily Todos and Rewards:**
 
-- **Duration:** 5 days (days 9-13).
-- **Rewards:** Each day rewards 2 CP (same as the last quest day).
-- **Streak Maintenance:** Continue the activity without breaking the streak for activity tracking purposes.
-- **Overlap Restriction:** Reported inertia days cannot overlap with new quest days.
-- **Starting New Quest:** If you decide to start a new quest, you must end inertia (i.e., stop reporting inertia todos that would overlap with the new quest).
+- **Days 1-5:** Walk in the park for 30 minutes each day.
+  - **Rewards:**
+    - Day 1: `floor(√1) = 1 CP`
+    - Day 2: `floor(√2) = 1 CP`
+    - Day 3: `floor(√3) = 1 CP`
+    - Day 4: `floor(√4) = 2 CP`
+    - Day 5: `floor(√5) = 2 CP`
+  - **Note:** Rewards are capped at the activity's difficulty.
+
+**Total CP Earned from Todos:** 7 CP
+
+**Quest Completion:**
+
+- **Receive Pledged CP Back:** 30 CP
+- **Difficulty Adjustment:** Decrease difficulty to 5 (since duration ≥ initial confidence level)
+- **Inertia Phase:** Optionally continue walking for 30 minutes daily without pledging additional CP.
 
 ### **Second Quest**
 
-- **Start Date:** Day 14 (after ending inertia without missing a day).
-- **Duration:** 5 days.
-- **New Difficulty:** 6 (after adjustment from previous quest).
-- **Cost:** `6 (difficulty) × 5 (days) = 30 CP`.
-- **Pledge:** 30 CP.
-- **Consecutive Day Count for Rewards:** Resumes from day 9 (since inertia days are excluded).
-- **Daily Todos and Rewards:**
-  - **Day 9 (First day of new quest):** `floor(√9) = 3 CP`
-  - **Day 10:** `floor(√10) = 3 CP`
-  - **Day 11:** `floor(√11) = 3 CP`
-  - **Day 12:** `floor(√12) = 3 CP`
-  - **Day 13:** `floor(√13) = 3 CP`
-  - **Note:** Rewards are capped at the new activity difficulty of 6.
-- **Total CP Earned from Todos in Second Quest:** 15 CP.
-- **Quest Completion:**
-  - **Receive Pledged CP Back:** 30 CP.
-  - **Difficulty Adjustment:** Decrease difficulty to 5 (since duration ≥ initial confidence level).
+- **Activity:** Walk in the Park for **90 Minutes**
+- **Difficulty:** 10
+- **Duration:** 3 days
+- **Start Date:** The day after completing inertia phase from the first quest.
+- **Cost:** `10 (difficulty) × 3 (days) = 30 CP`
+- **Pledge:** 30 CP
+
+**Daily Todos and Rewards:**
+
+- **Days 1-3:** Walk in the park for 90 minutes each day.
+  - **Rewards:**
+    - Day 1: `floor(√1) = 1 CP`
+    - Day 2: `floor(√2) = 1 CP`
+    - Day 3: `floor(√3) = 1 CP`
+  - **Note:** Despite the higher difficulty, rewards are calculated based on consecutive day count and capped at activity difficulty.
+
+**Total CP Earned from Todos:** 3 CP
+
+**Quest Completion:**
+
+- **Receive Pledged CP Back:** 30 CP
+- **Difficulty Adjustment:** Decrease difficulty to 9 (since duration ≥ initial confidence level)
+- **Inertia Phase:** Optionally continue walking for 90 minutes daily without pledging additional CP.
+
+### **Third Quest**
+
+- **Activity:** Walk in the Park for **10 Minutes**
+- **Difficulty:** 3
+- **Duration:** 7 days
+- **Start Date:** After completing inertia phase from the second quest.
+- **Cost:** `3 (difficulty) × 7 (days) = 21 CP`
+- **Pledge:** 21 CP
+
+**Daily Todos and Rewards:**
+
+- **Days 1-7:** Walk in the park for 10 minutes each day.
+  - **Rewards:**
+    - Day 1: `floor(√1) = 1 CP`
+    - Day 2: `floor(√2) = 1 CP`
+    - Day 3: `floor(√3) = 1 CP`
+    - Day 4: `floor(√4) = 2 CP`
+    - Day 5: `floor(√5) = 2 CP`
+    - Day 6: `floor(√6) = 2 CP`
+    - Day 7: `floor(√7) = 2 CP`
+  - **Note:** Rewards are capped at the activity's difficulty.
+
+**Total CP Earned from Todos:** 11 CP
+
+**Quest Completion:**
+
+- **Receive Pledged CP Back:** 21 CP
+- **Difficulty Adjustment:** Decrease difficulty to 2 (minimum of 1)
+- **Inertia Phase:** Optionally continue walking for 10 minutes daily without pledging additional CP.
 
 ## **5. Guidelines and Principles**
 
 ### **5.1 Honesty and Integrity**
 
 - Be truthful about completing todos and reporting failures.
-- Accurately assess activity difficulties and confidence levels.
+- Accurately assess activity difficulties based on the specific amounts.
 
 ### **5.2 Risk and Reward**
 
@@ -205,7 +245,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 ## **7. Customization and Flexibility**
 
-- **Adding New Activities:** You can add new activities at any time.
+- **Adding New Activities:** You can add new activities at any time, specifying the exact amount and appropriate units.
 - **Modifying Activities:**
   - **During Quests:** Not allowed.
   - **After Quests:** Allowed without retroactive effects.
