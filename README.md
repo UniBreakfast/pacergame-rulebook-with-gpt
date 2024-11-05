@@ -10,64 +10,222 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Endeavors (ES):** Directions of interest such as wishes, goals, dreams, needs, skills to develop, or habits to build or break. They represent the overarching areas you want to focus on.
 
-- **Activities (AS):** Specific, measurable tasks that can be performed a predetermined number of times per day. Each activity is designed to advance you in one or more endeavors.
+- **Activities (AS):**
 
-- **Quests (QS):** Commitments to engage in a specific activity over a set duration in days. Quests are taken from activities you choose to focus on.
+  - **Creation:** Players add activities as they see fit at any point in time, with no restrictions on the number or type. Activities can remain in a list until the player decides to undertake them.
+  
+  - **Measurement Units:** The amount of activity is determined by the player upon creation, using any suitable units (e.g., times, minutes, reps, sets, pages, meters, liters).
+  
+  - **Completion:** Players should honestly assess whether they have completed the daily requirements of an activity.
 
-- **Todos (TS):** The individual daily tasks within a quest. Each todo represents one day's commitment to the quest.
+- **Quests (QS):**
 
-- **Confidence Points (CP):** The currency of the game, spent to undertake quests and earned by completing todos and quests. CP reflects your growing confidence and capability.
+  - **Initiation:** Players decide the desired duration of a quest in days, limited only by their available Confidence Points (CP).
+  
+  - **Pledge:** To undertake a quest, players pledge CP equal to the quest's cost.
+  
+  - **Failure:** If a todo of a quest is not completed on any day, the quest fails, and the pledged CP is lost.
 
----
+- **Todos (TS):**
 
-### **Questions and Clarifications**
+  - **Definition:** The individual daily tasks within a quest. Each todo represents one day's commitment to the quest.
+  
+  - **Completion:** Marked by a daily checkmark when the activity is completed.
 
-**1. Activities:**
+- **Confidence Points (CP):**
 
-   - **Creation:** Are activities predefined by the game, or does the player create them based on personal endeavors?
-   - **Daily Limits:** You mentioned each activity can be done a predetermined amount once per day. Is this limit the same for all activities, or does it vary?
-   - **Measurement:** How is the success of an activity measured? Are there specific criteria or benchmarks?
+  - **Initial CP:** Determined subjectively by the player's self-assessed confidence level on a scale from 1 to 10.
+  
+  - **Earning CP:** Players earn CP by completing todos and successfully completing quests.
+  
+  - **Spending CP:** CP is spent when pledging for new quests.
 
-**2. Quests:**
+- **Difficulty:**
 
-   - **Duration Selection:** How does a player decide the duration of a quest? Are there minimum or maximum limits?
-   - **Simultaneous Quests:** Can a player undertake multiple quests at the same time? If so, is there a limit?
-   - **Failure Consequences:** What happens if a player fails to complete a quest? Are there CP penalties or other effects?
+  - **Assignment:** Activity difficulty is subjectively decided by the player upon creation, on a scale from 1 to 10.
 
-**3. Todos:**
+- **Inertia:**
 
-   - **Daily Commitment:** Is each todo simply a daily checkmark for completing the activity, or does it involve additional tasks?
-   - **Missed Todos:** If a player misses a day, can they make it up, or is the opportunity lost?
+  - **Definition:** After completing a quest, players can continue performing the activity daily without pledging more CP, maintaining their streak.
+  
+  - **Rewards:** The CP reward per todo remains the same during inertia, neither increasing nor decreasing.
 
-**4. Confidence Points (CP):**
+### **3. Game Mechanics**
 
-   - **Earning CP:** How many CP are earned for completing a todo or a full quest? Is the reward proportional to the difficulty or duration?
-   - **Spending CP:** How is the CP cost of taking on a quest determined? Does it depend on the activity's difficulty or the quest's duration?
-   - **Starting CP:** Do players start with an initial amount of CP? If so, how much?
+#### **3.1 Activities**
 
-**5. Difficulty, Pledge, Cost, Reward, Inertia:**
+- **Creation and Management:**
 
-   - **Difficulty Levels:** How are difficulty levels assigned to activities or quests? Do they affect CP costs and rewards?
-   - **Pledge:** What does the pledge entail? Is it a commitment level that affects CP stakes?
-   - **Inertia:** Could you elaborate on what inertia means in this context? Does it represent resistance to starting or maintaining activities?
-   - **Cost and Reward Calculation:** How are the cost and reward in CP calculated for each quest?
+  - Players can create activities that align with their endeavors at any time.
+  
+  - Activities can wait in a list until the player is ready to undertake them.
 
-**6. Progression and Growth:**
+- **Measurement and Units:**
 
-   - **Advancement:** Is there a leveling system or milestones that track player progress?
-   - **Endeavor Progress:** How does progress in an endeavor manifest? Are there tangible benefits or unlocks?
+  - Activities are quantified using units appropriate to the task (e.g., minutes, pages, kilometers).
 
-**7. Examples:**
+- **Honesty and Self-Assessment:**
 
-   - **Sample Endeavor:** For example, if an endeavor is "Learn Spanish," what would be corresponding activities, quests, and todos?
-   - **Activity Breakdown:** How detailed should an activity be? Should it be "Study Spanish for 30 minutes" or more specific like "Learn 20 new vocabulary words"?
+  - Players are expected to honestly determine if they have completed the activity's daily requirements.
 
-**8. Penalties and Failures:**
+#### **3.2 Quests**
 
-   - **CP Penalties:** Are there CP deductions for failing to complete todos or quests?
-   - **Motivation:** How does the game encourage players to stay committed to their quests?
+- **Starting a Quest:**
 
-**9. Customization and Flexibility:**
+  - **Duration:** Players choose the duration of a quest in days, based on their goals and available CP.
+  
+  - **Cost Calculation:** Quest Cost = Activity Difficulty × Quest Duration (in days).
+  
+  - **Pledging CP:** Players must pledge CP equal to the quest's cost to initiate it.
 
-   - **Adjustments:** Can players adjust the duration or intensity of a quest once it's started?
-   - **Activity Modification:** Are players allowed to modify activities to better suit their changing needs?
+- **Completing a Quest:**
+
+  - **Daily Todos:** Players must complete the daily todo for each day of the quest.
+  
+  - **Rewards per Todo:**
+
+    - Each completed todo rewards CP calculated as the floor of the square root of the current consecutive day count. For example, on day 4 of a streak, the reward is floor(√4) = 2 CP.
+
+- **Quest Completion:**
+
+  - **Successful Completion:** Upon completing the quest, the player receives their pledged CP back, plus the CP earned from each todo.
+  
+  - **Inertia Continuation:** Players can continue the activity after quest completion without pledging more CP, maintaining their streak and earning the same daily CP reward.
+
+- **Quest Failure:**
+
+  - **Loss of Pledge:** If a player fails to complete a todo on any day, the quest fails, and the pledged CP is lost.
+  
+  - **Streak Reset:** The streak for that activity resets, and no further CP can be earned through inertia until a new quest is initiated.
+
+#### **3.3 Confidence Points (CP)**
+
+- **Initial CP:**
+
+  - Players estimate their starting CP by assessing their confidence level from 1 to 10.
+
+- **Earning CP:**
+
+  - **Per Todo:** CP earned per completed todo is calculated as floor(√day_in_row).
+
+  - **Quest Completion:** Successfully completing a quest returns the pledged CP to the player.
+
+- **Spending CP:**
+
+  - CP is spent when pledging for new quests, calculated based on the activity's difficulty and quest duration.
+
+#### **3.4 Inertia**
+
+- **Post-Quest Activity:**
+
+  - After a quest is completed, players can continue reporting completed todos without pledging additional CP.
+
+- **Maintaining the Streak:**
+
+  - The streak continues as long as the player completes the daily todo.
+  
+  - Missing a day breaks the streak, ending the inertia phase.
+
+- **Rewards During Inertia:**
+
+  - The CP reward per todo remains constant, equal to the reward on the last day of the quest.
+
+### **4. Example Scenario**
+
+#### **Endeavor:** Improve Physical Fitness
+
+- **Activity:** Run 2 kilometers daily.
+
+  - **Difficulty:** Player sets difficulty at 3.
+
+- **Quest:**
+
+  - **Duration:** 5 days.
+
+  - **Cost:** Difficulty (3) × Duration (5) = 15 CP.
+
+  - **Pledge:** Player pledges 15 CP to start the quest.
+
+- **Daily Todos and Rewards:**
+
+  - **Day 1:** Complete run. Reward: floor(√1) = 1 CP.
+  
+  - **Day 2:** Complete run. Reward: floor(√2) = 1 CP.
+  
+  - **Day 3:** Complete run. Reward: floor(√3) = 1 CP.
+  
+  - **Day 4:** Complete run. Reward: floor(√4) = 2 CP.
+  
+  - **Day 5:** Complete run. Reward: floor(√5) = 2 CP.
+
+- **Total CP Earned from Todos:** 7 CP.
+
+- **Quest Completion:**
+
+  - Player successfully completes the quest and gets back the pledged 15 CP.
+
+  - **Total CP After Quest:** Initial CP - 15 (pledge) + 7 (todos) + 15 (returned pledge) = Initial CP + 7 CP.
+
+- **Inertia Phase:**
+
+  - **Continuation:** Player continues running 2 km daily without pledging more CP.
+
+  - **Daily Reward:** CP reward remains at 2 CP per day.
+
+  - **Streak Maintenance:** The inertia phase continues until a day is missed.
+
+### **5. Guidelines and Principles**
+
+- **Honesty and Integrity:**
+
+  - The game relies on players being truthful about completing activities and assessing difficulties.
+
+- **Self-Assessment:**
+
+  - Players should realistically evaluate their confidence levels and activity difficulties to ensure meaningful progress.
+
+- **Risk and Reward:**
+
+  - The CP system incentivizes commitment, as failing a quest results in the loss of pledged CP.
+
+- **Encouragement of Multiple Quests:**
+
+  - Players can undertake multiple quests simultaneously, limited only by their available CP.
+
+### **6. Progression and Growth**
+
+- **Accumulating CP:**
+
+  - Completing quests and maintaining streaks through inertia allows players to accumulate CP.
+
+- **Taking on Greater Challenges:**
+
+  - With more CP, players can undertake longer or more difficult quests, aligning with personal growth.
+
+- **Advancing Endeavors:**
+
+  - Regular completion of activities contributes to progress in the player's chosen endeavors.
+
+### **7. Customization and Flexibility**
+
+- **Adjustments and Modifications:**
+
+  - Players can add new activities or modify existing ones at any time to better suit their evolving goals.
+
+- **No Mid-Quest Changes:**
+
+  - Once a quest is initiated, its duration and difficulty cannot be altered until completion or failure.
+
+### **8. Final Notes**
+
+- **Motivation Through CP:**
+
+  - The system is designed to motivate players by rewarding consistency and commitment while introducing risks to enhance engagement.
+
+- **Balancing Commitments:**
+
+  - Players should balance the difficulty and number of quests with their real-life capacities to avoid overcommitment.
+
+- **Community and Support:**
+
+  - While the game is self-managed, sharing progress with others can provide additional motivation and accountability.
