@@ -12,32 +12,32 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Activities (AS):**
 
-  - **Creation:** Players add activities as they see fit at any point in time, with no restrictions on the number or type. Activities can remain in a list until the player decides to undertake them.
-  
+  - **Creation:** Players add activities as they see fit at any point in time, with no restrictions on the number or type. Activities can remain in a list until the player decides to undertake them in a quest.
+
   - **Measurement Units:** The amount of activity is determined by the player upon creation, using any suitable units (e.g., times, minutes, reps, sets, pages, meters, liters).
-  
-  - **Completion:** Players should honestly assess whether they have completed the daily requirements of an activity.
 
 - **Quests (QS):**
 
   - **Initiation:** Players decide the desired duration of a quest in days, limited only by their available Confidence Points (CP).
-  
+
+  - **Association with Activities:** A quest is undertaken by selecting an activity from the player's list. The quest then sets a daily requirement (todo) based on the activity's parameters.
+
   - **Pledge:** To undertake a quest, players pledge CP equal to the quest's cost.
-  
+
   - **Failure:** If a todo of a quest is not completed on any day, the quest fails, and the pledged CP is lost.
 
 - **Todos (TS):**
 
-  - **Definition:** The individual daily tasks within a quest. Each todo represents one day's commitment to the quest.
-  
-  - **Completion:** Marked by a daily checkmark when the activity is completed.
+  - **Definition:** The individual daily tasks within a quest. Each todo represents one day's commitment to perform the activity's required amount.
+
+  - **Completion:** Marked by a daily checkmark when the activity's required amount is completed.
 
 - **Confidence Points (CP):**
 
   - **Initial CP:** Determined subjectively by the player's self-assessed confidence level on a scale from 1 to 10.
-  
+
   - **Earning CP:** Players earn CP by completing todos and successfully completing quests.
-  
+
   - **Spending CP:** CP is spent when pledging for new quests.
 
 - **Difficulty:**
@@ -47,7 +47,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Inertia:**
 
   - **Definition:** After completing a quest, players can continue performing the activity daily without pledging more CP, maintaining their streak.
-  
+
   - **Rewards:** The CP reward per todo remains the same during inertia, neither increasing nor decreasing.
 
 ### **3. Game Mechanics**
@@ -57,45 +57,51 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Creation and Management:**
 
   - Players can create activities that align with their endeavors at any time.
-  
-  - Activities can wait in a list until the player is ready to undertake them.
+
+  - Activities can remain inactive in a list until the player is ready to undertake them in a quest.
 
 - **Measurement and Units:**
 
   - Activities are quantified using units appropriate to the task (e.g., minutes, pages, kilometers).
 
-- **Honesty and Self-Assessment:**
+- **No Inherent Daily Requirements:**
 
-  - Players are expected to honestly determine if they have completed the activity's daily requirements.
+  - Activities by themselves do not have daily requirements or obligations.
+
+  - The daily requirement is established only when an activity is undertaken as part of a quest.
 
 #### **3.2 Quests**
 
 - **Starting a Quest:**
 
+  - **Selection of Activity:** Players choose an activity from their list to form the basis of the quest.
+
   - **Duration:** Players choose the duration of a quest in days, based on their goals and available CP.
-  
+
   - **Cost Calculation:** Quest Cost = Activity Difficulty × Quest Duration (in days).
-  
+
   - **Pledging CP:** Players must pledge CP equal to the quest's cost to initiate it.
+
+- **Todos:**
+
+  - **Daily Commitment:** Each day of the quest requires the player to complete the todo, which involves performing the activity's required amount.
+
+  - **Completion Verification:** Players honestly assess and confirm the completion of each day's todo.
 
 - **Completing a Quest:**
 
-  - **Daily Todos:** Players must complete the daily todo for each day of the quest.
-  
-  - **Rewards per Todo:**
+  - **Daily Rewards:**
 
-    - Each completed todo rewards CP calculated as the floor of the square root of the current consecutive day count. For example, on day 4 of a streak, the reward is floor(√4) = 2 CP.
+    - Each completed todo rewards CP calculated as the floor of the square root of the current consecutive day count within the quest. For example, on day 4 of a streak, the reward is floor(√4) = 2 CP.
 
-- **Quest Completion:**
+  - **Quest Completion:**
 
-  - **Successful Completion:** Upon completing the quest, the player receives their pledged CP back, plus the CP earned from each todo.
-  
-  - **Inertia Continuation:** Players can continue the activity after quest completion without pledging more CP, maintaining their streak and earning the same daily CP reward.
+    - Upon completing the quest, the player receives their pledged CP back, plus the CP earned from each todo.
 
 - **Quest Failure:**
 
   - **Loss of Pledge:** If a player fails to complete a todo on any day, the quest fails, and the pledged CP is lost.
-  
+
   - **Streak Reset:** The streak for that activity resets, and no further CP can be earned through inertia until a new quest is initiated.
 
 #### **3.3 Confidence Points (CP)**
@@ -118,12 +124,12 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Post-Quest Activity:**
 
-  - After a quest is completed, players can continue reporting completed todos without pledging additional CP.
+  - After a quest is completed, players can continue performing the activity daily without pledging additional CP.
 
 - **Maintaining the Streak:**
 
   - The streak continues as long as the player completes the daily todo.
-  
+
   - Missing a day breaks the streak, ending the inertia phase.
 
 - **Rewards During Inertia:**
@@ -134,7 +140,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 #### **Endeavor:** Improve Physical Fitness
 
-- **Activity:** Run 2 kilometers daily.
+- **Activity:** Run 2 kilometers.
 
   - **Difficulty:** Player sets difficulty at 3.
 
@@ -148,14 +154,16 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Daily Todos and Rewards:**
 
+  - **Todos:** Each day, the player must run 2 kilometers as per the quest's requirement.
+
   - **Day 1:** Complete run. Reward: floor(√1) = 1 CP.
-  
+
   - **Day 2:** Complete run. Reward: floor(√2) = 1 CP.
-  
+
   - **Day 3:** Complete run. Reward: floor(√3) = 1 CP.
-  
+
   - **Day 4:** Complete run. Reward: floor(√4) = 2 CP.
-  
+
   - **Day 5:** Complete run. Reward: floor(√5) = 2 CP.
 
 - **Total CP Earned from Todos:** 7 CP.
@@ -170,7 +178,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Continuation:** Player continues running 2 km daily without pledging more CP.
 
-  - **Daily Reward:** CP reward remains at 2 CP per day.
+  - **Daily Reward:** CP reward remains at 2 CP per day (same as the reward on the last day of the quest).
 
   - **Streak Maintenance:** The inertia phase continues until a day is missed.
 
@@ -178,7 +186,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Honesty and Integrity:**
 
-  - The game relies on players being truthful about completing activities and assessing difficulties.
+  - The game relies on players being truthful about completing todos during quests and inertia.
 
 - **Self-Assessment:**
 
