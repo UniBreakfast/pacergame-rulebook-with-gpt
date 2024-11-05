@@ -18,6 +18,8 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Difficulty Assignment:** Each activity is assigned a subjective difficulty level by the player upon creation, on a scale from 1 to 10. This difficulty affects the cost of quests derived from the activity.
 
+  - **Modification Rules:** Activities cannot be modified while there is an ongoing quest associated with them. Any changes made after a quest has concluded do not retroactively affect past quests or calculations.
+
 - **Quests (QS):**
 
   - **Initiation:** Players decide the desired duration of a quest in days, limited only by their available Confidence Points (CP).
@@ -80,6 +82,16 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - Upon creating an activity, players assign it a difficulty level from 1 to 10, reflecting how challenging they perceive the activity to be.
 
+- **Modification Rules:**
+
+  - **No Modifications During Ongoing Quests:** Players should not modify an activity while there is an ongoing quest associated with that activity.
+
+  - **Post-Quest Modifications:**
+
+    - After all associated quests have concluded, players may modify the activity.
+
+    - **No Retroactive Changes:** Any modifications made do not retroactively affect past quests or calculations.
+
 - **No Inherent Daily Requirements:**
 
   - Activities by themselves do not have daily requirements or obligations.
@@ -137,8 +149,6 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Earning CP:**
 
   - **Per Todo:** CP earned per completed todo is calculated as floor(√day_in_row) and is gained immediately upon completion of the todo.
-
-  - **Quest Completion:** Successfully completing a quest returns the pledged CP to the player.
 
 - **Spending CP:**
 
@@ -312,9 +322,27 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 ### **7. Customization and Flexibility**
 
-- **Adjustments and Modifications:**
+- **Adding New Activities:**
 
-  - Players can add new activities or modify existing ones at any time to better suit their evolving goals.
+  - Players can add new activities at any time to align with their evolving goals.
+
+- **Modifying Existing Activities:**
+
+  - **No Modifications During Ongoing Quests:**
+
+    - Players should not modify an activity while there is an ongoing quest associated with it.
+
+    - This ensures consistency and fairness in quest calculations and CP rewards.
+
+  - **Post-Quest Modifications:**
+
+    - Once all quests associated with an activity have concluded, players may modify the activity's parameters, such as difficulty or required amount.
+
+    - **No Retroactive Changes:**
+
+      - Modifications made to an activity do not retroactively affect past quests, CP calculations, or rewards.
+
+      - Past quests remain as they were originally undertaken, preserving the integrity of the game's history.
 
 - **No Mid-Quest Changes:**
 
