@@ -36,7 +36,15 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Confidence Points (CP):**
 
-  - **Initial CP:** Determined subjectively by the player's self-assessed confidence level on a scale from 1 to 10.
+  - **Initial CP:**
+
+    - **Estimation at Game Start:** At the beginning of the game, players estimate their starting CP by assessing their confidence level on a scale from 1 to 10. This estimation is done once when the game starts.
+
+    - **Re-estimation Conditions:** The initial CP estimation is not repeated unless:
+
+      - The player reaches 0 CP with no active quests to gain more CP.
+
+      - The player chooses to restart the game due to personal reasons, such as having stopped playing by the rules for an extended period.
 
   - **Earning CP:** Players earn CP by completing todos and successfully completing quests.
 
@@ -116,7 +124,13 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Initial CP:**
 
-  - Players estimate their starting CP by assessing their confidence level from 1 to 10.
+  - **One-Time Estimation:** At the start of the game, players estimate their initial CP by assessing their confidence level from 1 to 10. This estimation is done once and sets the foundation for the player's CP balance.
+
+  - **Re-estimation Conditions:**
+
+    - **Zero CP with No Active Quests:** If a player reaches 0 CP and has no active quests to gain more CP, they may re-estimate their initial CP to restart the game.
+
+    - **Voluntary Restart:** If a player has stopped playing by the rules for an extended period or wishes to start over for personal reasons, they may choose to re-estimate their initial CP and begin anew.
 
 - **Earning CP:**
 
@@ -174,23 +188,25 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Day 3:** Complete run. Reward: floor(√3) = 1 CP.
 
-  - **Day 4:** **Failed to Complete Run.**
+  - **Day 4:** Complete run. Reward: floor(√4) = 2 CP.
 
-    - **Failure Reporting:** Player explicitly reports the failure.
+  - **Day 5:** Complete run. Reward: floor(√5) = 2 CP.
 
-    - **Quest Failure:** Pledged 15 CP is lost.
+- **Total CP Earned from Todos:** 7 CP.
 
-    - **Total CP Earned Before Failure:** 1 + 1 + 1 = 3 CP.
+- **Quest Completion:**
 
-- **After Quest Failure:**
+  - Player successfully completes the quest and gets back the pledged 15 CP.
 
-  - **CP Balance:** Initial CP - 15 (pledge) + 3 (todos) = Initial CP - 12 CP.
+  - **Total CP After Quest:** Initial CP - 15 (pledge) + 7 (todos) + 15 (returned pledge) = Initial CP + 7 CP.
 
-  - **Opportunity to Try Again:** Player can start a new quest when they have enough CP.
+- **Inertia Phase:**
 
-- **Starting a New Quest:**
+  - **Continuation:** Player continues running 2 km daily without pledging more CP.
 
-  - The player may undertake smaller quests to rebuild CP or wait until they accumulate enough CP from other activities.
+  - **Daily Reward:** CP reward remains at 2 CP per day (same as the reward on the last day of the quest).
+
+  - **Streak Maintenance:** The inertia phase continues until a day is missed.
 
 ### **5. Guidelines and Principles**
 
@@ -211,6 +227,18 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
   - Failing a quest is not the end. It's an opportunity to reassess and try again.
 
   - Players can undertake new quests to regain lost CP and continue progressing toward their endeavors.
+
+- **Starting Over:**
+
+  - **When to Re-estimate Initial CP:**
+
+    - If a player reaches 0 CP with no active quests to gain more CP, they may choose to restart the game by re-estimating their initial CP.
+
+    - Players may also restart if they have taken a significant break from the game and wish to begin anew.
+
+  - **Re-estimation Process:**
+
+    - The player reassesses their confidence level from 1 to 10 to determine a new initial CP.
 
 - **Encouragement of Multiple Quests:**
 
@@ -259,6 +287,10 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
   - Failing a quest provides valuable insight into personal limits and areas for improvement.
 
   - Players are encouraged to view setbacks as learning opportunities.
+
+- **Restarting the Game:**
+
+  - Players have the option to restart the game under specific conditions, allowing for a fresh start and renewed motivation.
 
 - **Community and Support:**
 
