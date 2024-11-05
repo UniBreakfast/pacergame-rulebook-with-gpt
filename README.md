@@ -48,7 +48,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
       - The player chooses to restart the game due to personal reasons, such as having stopped playing by the rules for an extended period.
 
-  - **Earning CP:** Players earn CP by completing todos and successfully completing quests.
+  - **Earning CP:** Players earn CP immediately upon completing each todo and by successfully completing quests.
 
   - **Spending CP:** CP is spent when pledging for new quests.
 
@@ -104,17 +104,13 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Completion Verification:** Players honestly assess and confirm the completion of each day's todo by marking a checkmark.
 
+  - **Immediate CP Rewards:** Upon completing each todo, the player immediately gains CP calculated as the floor of the square root of the current consecutive day count within the quest. For example, on day 4 of a streak, the reward is floor(√4) = 2 CP.
+
   - **Failure Reporting:** If a player fails to complete a todo, they must explicitly report the failure, resulting in the quest's failure.
 
 - **Completing a Quest:**
 
-  - **Daily Rewards:**
-
-    - Each completed todo rewards CP calculated as the floor of the square root of the current consecutive day count within the quest. For example, on day 4 of a streak, the reward is floor(√4) = 2 CP.
-
-  - **Quest Completion:**
-
-    - Upon completing the quest, the player receives their pledged CP back, plus the CP earned from each todo.
+  - **Return of Pledged CP:** Upon completing the quest, the player receives their pledged CP back.
 
 - **Quest Failure:**
 
@@ -140,7 +136,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Earning CP:**
 
-  - **Per Todo:** CP earned per completed todo is calculated as floor(√day_in_row).
+  - **Per Todo:** CP earned per completed todo is calculated as floor(√day_in_row) and is gained immediately upon completion of the todo.
 
   - **Quest Completion:** Successfully completing a quest returns the pledged CP to the player.
 
@@ -170,6 +166,8 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - The CP reward per todo remains constant, equal to the reward on the last day of the quest.
 
+  - **Immediate Rewards:** CP earned during inertia is gained immediately upon completion of each todo.
+
 - **No Losses on Breaking Streak:**
 
   - Breaking the streak during inertia brings no losses since the pledge was already returned upon quest completion. The player simply stops earning CP from that activity until a new quest is initiated.
@@ -194,29 +192,59 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Todos:** Each day, the player must run 2 kilometers as per the quest's requirement.
 
-  - **Day 1:** Complete run. Reward: floor(√1) = 1 CP.
+  - **Day 1:**
 
-  - **Day 2:** Complete run. Reward: floor(√2) = 1 CP.
+    - **Complete Run:** Yes.
 
-  - **Day 3:** Complete run. Reward: floor(√3) = 1 CP.
+    - **Reward:** floor(√1) = 1 CP, gained immediately.
 
-  - **Day 4:** Complete run. Reward: floor(√4) = 2 CP.
+  - **Day 2:**
 
-  - **Day 5:** Complete run. Reward: floor(√5) = 2 CP.
+    - **Complete Run:** Yes.
+
+    - **Reward:** floor(√2) = 1 CP, gained immediately.
+
+  - **Day 3:**
+
+    - **Complete Run:** Yes.
+
+    - **Reward:** floor(√3) = 1 CP, gained immediately.
+
+  - **Day 4:**
+
+    - **Complete Run:** Yes.
+
+    - **Reward:** floor(√4) = 2 CP, gained immediately.
+
+  - **Day 5:**
+
+    - **Complete Run:** Yes.
+
+    - **Reward:** floor(√5) = 2 CP, gained immediately.
 
 - **Total CP Earned from Todos:** 7 CP.
 
 - **Quest Completion:**
 
-  - Player successfully completes the quest and gets back the pledged 15 CP.
+  - **Pledge Returned:** Yes, 15 CP is returned to the player upon quest completion.
 
-  - **Total CP After Quest:** Initial CP - 15 (pledge) + 7 (todos) + 15 (returned pledge) = Initial CP + 7 CP.
+- **Total CP Calculation:**
+
+  - **Starting CP:** Let's assume an initial CP of 20.
+
+  - **Pledged CP:** -15 (for the quest).
+
+  - **CP Earned from Todos:** +7 (gained immediately over the course of the quest).
+
+  - **Pledge Returned:** +15 (upon quest completion).
+
+  - **Total CP After Quest Completion:** 20 (initial) - 15 (pledge) + 7 (todos) + 15 (returned pledge) = **27 CP**.
 
 - **Inertia Phase:**
 
   - **Continuation:** Player continues running 2 km daily without pledging more CP.
 
-  - **Daily Reward:** CP reward remains at 2 CP per day (same as the reward on the last day of the quest).
+  - **Daily Reward:** CP reward remains at 2 CP per day (same as the reward on the last day of the quest), gained immediately upon completion of each todo.
 
   - **Streak Maintenance:** The inertia phase continues until a day is missed.
 
