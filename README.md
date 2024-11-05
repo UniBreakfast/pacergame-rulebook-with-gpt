@@ -16,6 +16,8 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Measurement Units:** The amount of activity is determined by the player upon creation, using any suitable units (e.g., times, minutes, reps, sets, pages, meters, liters).
 
+  - **Difficulty Assignment:** Each activity is assigned a subjective difficulty level by the player upon creation, on a scale from 1 to 10. This difficulty affects the cost of quests derived from the activity.
+
 - **Quests (QS):**
 
   - **Initiation:** Players decide the desired duration of a quest in days, limited only by their available Confidence Points (CP).
@@ -56,7 +58,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Inertia:**
 
-  - **Definition:** After completing a quest, players can continue performing the activity daily without pledging more CP, maintaining their streak.
+  - **Definition:** After completing a quest, players can continue performing the same activity daily without pledging more CP, maintaining their streak.
 
   - **Rewards:** The CP reward per todo remains the same during inertia, neither increasing nor decreasing.
 
@@ -73,6 +75,10 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Measurement and Units:**
 
   - Activities are quantified using units appropriate to the task (e.g., minutes, pages, kilometers).
+
+- **Difficulty Assignment:**
+
+  - Upon creating an activity, players assign it a difficulty level from 1 to 10, reflecting how challenging they perceive the activity to be.
 
 - **No Inherent Daily Requirements:**
 
@@ -116,7 +122,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Loss of Pledge:** If a player reports a failure, the quest fails, and the pledged CP is lost.
 
-  - **Opportunity for New Quests:** Failing a quest is not the end—players can undertake the same or new quests in the future as they accumulate more CP.
+  - **Opportunity for New Quests:** Failing a quest is not the end—players can undertake similar or different new quests in the future as they accumulate more CP.
 
   - **Streak Reset:** The streak for that activity resets, and no further CP can be earned through inertia until a new quest is initiated.
 
@@ -150,7 +156,9 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Post-Quest Activity:**
 
-  - After a quest is completed, players can continue performing the activity daily without pledging additional CP.
+  - After a quest is completed, players can continue performing the **same** activity daily without pledging additional CP.
+
+  - **Quest-Specific:** Inertia applies only to the specific quest that was completed. It neither affects other quests nor is affected by the success or failure of other quests.
 
 - **Maintaining the Streak:**
 
@@ -161,6 +169,10 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 - **Rewards During Inertia:**
 
   - The CP reward per todo remains constant, equal to the reward on the last day of the quest.
+
+- **No Losses on Breaking Streak:**
+
+  - Breaking the streak during inertia brings no losses since the pledge was already returned upon quest completion. The player simply stops earning CP from that activity until a new quest is initiated.
 
 ### **4. Example Scenario**
 
@@ -208,6 +220,14 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - **Streak Maintenance:** The inertia phase continues until a day is missed.
 
+  - **Quest-Specific Inertia:** This inertia applies only to the running activity and does not impact any other quests or activities.
+
+- **Breaking the Streak:**
+
+  - If the player misses a day during inertia, the streak ends.
+
+  - **No Losses:** There are no CP losses upon breaking the streak during inertia, as the pledge was already returned upon completing the original quest.
+
 ### **5. Guidelines and Principles**
 
 - **Honesty and Integrity:**
@@ -226,7 +246,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - Failing a quest is not the end. It's an opportunity to reassess and try again.
 
-  - Players can undertake new quests to regain lost CP and continue progressing toward their endeavors.
+  - Players can undertake similar or different new quests in the future as they accumulate more CP.
 
 - **Starting Over:**
 
