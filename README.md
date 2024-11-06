@@ -1,19 +1,22 @@
 # [pacergame-rulebook-with-gpt](https://github.com/UniBreakfast/pacergame-rulebook-with-gpt)
 
-# **PacerGame Rulebook**
+# **PacerGame (PG) Rulebook**
 
 ## **1. Introduction**
 
-Welcome to **PacerGame**, a gamified self-improvement system designed to help you achieve your goals through structured tasks and rewards. By engaging in meaningful activities aligned with your personal endeavors, you earn Confidence Points (CP) that fuel your progress and unlock new challenges.
+Welcome to **PacerGame**, a gamified self-improvement system designed to help you become a confident and accomplished individual. PacerGame empowers you to build a strong and consistent momentum towards personal growth, create and strengthen a tendency to achieve goals and fulfill desires. By engaging in meaningful activities aligned with your personal endeavors, you earn Confidence Points (CP) that fuel your progress and unlock new challenges.
 
 ## **2. Key Concepts**
 
 ### **2.1 Endeavors (ES)**
 
-- **Definition:** Overarching areas of interest such as goals, dreams, needs, skills to develop, or habits to build or break.
-- **Purpose:** Provide direction and focus for selecting activities.
+- **Definition:** Overarching areas of interest such as goals, dreams, desires, needs, skills to develop, or habits to build or break, as well as acquiring or deepening knowledge in specific domains.
+- **Purpose:** Provide direction and focus for selecting activities. Help evaluate overall progress in achieving the desired outcomes.
 
 ### **2.2 Activities (AS)**
+
+- **Definition:** Specific tasks with clearly defined amounts in appropriate units and subjectively estimated difficulty levels.
+- **Purpose:** Serve as a base for quests to facilitate the pursuit of specific endeavors.
 
 - **Creation:**
   - **Specific Tasks with Defined Amounts:** When creating an activity, specify a specific amount using appropriate units such as minutes, pages, or kilometers. This defines the exact requirement for the activity.
