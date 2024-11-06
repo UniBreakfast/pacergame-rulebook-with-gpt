@@ -24,7 +24,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Definition:** Commitments to perform a specific activity daily over a set duration, with CP pledged as a stake.
 
-- **Purpose:** Provide structured challenges that encourage consistency and dedication, offering rewards upon completion and penalties upon failure.
+- **Purpose:** Provide structured challenges that encourage consistency and dedication, tracking effort investment and reported progress.
 
 ### 2.4 Todos (TS)
 
@@ -34,7 +34,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 ### 2.5 Confidence Points (CP)
 
-- **Definition:** The in-game currency representing your confidence and progress, used to initiate quests and earned by completing tasks.
+- **Definition:** The in-game measurable resource representing your confidence and progress, used to pledge when initiating quests and earned by completing todos.
 
 - **Purpose:** Motivate commitment and accountability, providing a risk-reward system that incentivizes consistent effort.
 
