@@ -38,6 +38,12 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Purpose:** Motivate commitment and accountability, providing a risk-reward system that incentivizes consistent effort.
 
+### 2.6 Inertia
+
+- **Definition:** The phase after completing a quest, allowing continuation of reported progress of the same activity with daily rewards but without pledging additional CP. Why stop if you feel like you can keep going?
+
+- **Purpose:** Allow for momentum and consistency without the risk of a loss of pledged CP as it is already returned. Squeze out more rewards for completing more todos in the same quest. 
+
 ## 3. Game Mechanics
 
 ### 3.1 Activities (AS)
@@ -74,6 +80,12 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - Spend CP equal to the quest's cost when initiating new quests by pledging CP.
 
+- **Starting Over:**
+  
+  - Re-estimation of initial CP is allowed if you reach 0 CP with no active quests.
+
+  - It is also recommended to start over after an extended break from the game.
+
 ### 3.3 Quests (QS)
 
 - **Starting a Quest:**
@@ -88,79 +100,77 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
   - Pledge CP equal to the quest's cost to initiate it.
 
-  - **Overlap Restrictions:** No overlapping quests for the same activity are allowed.
+  - No overlapping quests for the same activity are allowed.
 
 - **Todos and Completion:**
 
-  - **Daily Commitment:** Complete the activity's specific amount each day.
+  - Complete the activity's specific amount each day.
 
-  - **Verification:** Honestly confirm completion of each todo.
+  - Honestly confirm completion of each todo.
 
-  - **Per Todo CP Rewards:** Gain CP upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia). The maximum reward per todo is capped by the activity's difficulty at the time the quest is taken.
+  - Gain CP upon completing each todo, calculated as `floor(√n)`, where `n` is the current consecutive day count within the quest and any unbroken sequence of quests for the same activity (excluding days from inertia). The maximum reward per todo is capped by the activity's difficulty at the time the quest is taken.
 
 - **Quest Failure:**
 
-  - **Failure Reporting:** Explicitly report any failure to complete a todo.
+  - Explicitly report any failure to complete a todo.
 
   - **Consequences of Failure:**
 
     - Lose pledged CP upon quest failure.
 
-    - Increase the activity's difficulty by 1 (can exceed 10) if the quest duration was equal to or longer than your initial confidence level.
+    - Increase the activity's difficulty by 1 (can exceed 10) if the quest duration was equal to or longer than your initial confidence level and quest was failed after at least one day of todo completion.
 
-    - Days of completed and failed todos of a finished quest or any days of an unfinished quest cannot overlap with another quest for the same activity.
+    - Days of completed and failed todos of a finished quest cannot overlap with another quest for the same activity.
 
     - Remaining todos from the failed quest are discarded and cannot be reported or rewarded.
 
 - **Quest Completion:**
 
-  - **Receive Pledged CP Back:** Upon completing the quest, get your pledged CP returned.
+  - Upon completing the quest, get your pledged CP returned.
 
   - Decrease the activity's difficulty by 1 (not below 1) if the quest duration was equal to or longer than your initial confidence level.
 
   - Option to continue the activity in the inertia phase.
 
-  - **Definition of Finished Quest:** A quest is considered finished if it is either completed or failed, even if inertia continues.
+  - A quest is considered finished if it is either completed or failed, even if inertia continues.
 
 ### 3.4 Inertia
 
-- **Definition:** The phase after completing a quest, allowing continuation of the same activity without pledging additional CP.
-
 - **Rules:**
 
-  - **Activity Continuation:** Continue performing the same activity with the same specific amount daily.
+  - Continue performing the same activity with the same specific amount daily.
 
-  - **Streak Maintenance:** Maintain your consecutive day count for the purpose of continuing the activity, but note that days in inertia are not counted towards reward calculations in future quests.
+  - Maintain your consecutive day count for the purpose of continuing the activity, but note that days in inertia are not counted towards reward calculations in future quests.
 
 - **Rewards:**
 
-  - **CP Reward per Todo:** Remains constant during inertia, equal to the reward on the last day of the quest.
+  - CP Reward per Todo remains constant during inertia, equal to the reward on the last day of the quest.
 
 - **Overlapping with New Quests:**
 
-  - **No Overlaps Allowed:** Reported todo days of inertia cannot overlap with new quest days.
+  - No Overlaps Allowed. Reported todo days of inertia cannot overlap with new quest days.
 
-  - **Unreported Todos:** If you choose to start a new quest that would overlap with unreported inertia days, those unreported days are discarded.
+  - If you choose to start a new quest that would overlap with unreported inertia days, those unreported days are discarded.
 
 - **Breaking the Streak:**
 
-  - **No Losses:** No CP losses upon ending inertia since the pledge was already returned.
+  - No CP losses upon ending inertia since the pledge was already returned.
 
-  - **Consecutive Day Count Reset:** If you miss a day, the streak ends, and your consecutive day count is reset.
+  - If you miss a day, the streak ends, and your consecutive day count is reset.
 
 ### 3.5 Streaks and Consecutive Days
 
 - **Consecutive Day Count:**
 
-  - **Within a Quest:** Days are counted consecutively for reward calculation.
+  - Within a Quest days are counted consecutively for reward calculation.
 
-  - **Between Quests (Same Activity):** If you start a new quest for the same activity without missing a day (excluding days from inertia), the consecutive day count continues from where it left off at the end of the last quest.
+  - If you start a new quest for the same activity without missing a day (excluding days from inertia), the consecutive day count continues from where it left off at the end of the last quest.
 
   - **Excluding Inertia Days:** Days spent in the inertia phase are **not** counted towards the consecutive day count for reward calculations in new quests.
 
 - **Starting New Quests Without Breaking Streaks:**
 
-  - **Seamless Transition:** If you start a new quest for the same activity on the next day after completing a quest or inertia phase without missing a day, your day count for reward calculation resumes from the end of the last quest (excluding inertia days).
+  - Seamless Transition - if you start a new quest for the same activity on the next day after completing a quest or inertia phase without missing a day, your day count for reward calculation resumes from the end of the last quest (excluding inertia days).
 
   - **Reward Calculation:** The first day's todo in the new quest is considered the next in sequence from the last quest day count (e.g., if the last quest ended on day 8, the new quest starts at day 9 for reward purposes).
 
@@ -180,45 +190,13 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Opportunity for Growth:** Use failures to reassess and adjust strategies.
 
-### 4.3 Adjusting Activity Difficulty
+### 4.3 Longer, Harder, More Quests
 
-- **Upon Quest Completion:**
+- The more confidence you gain, the more quests you can initiate concurrently.
 
-  - **Success:** Decrease difficulty by 1 (minimum of 1).
+- The harder they can be in terms of activity difficulty
 
-  - **Failure:** Increase difficulty by 1.
-
-- Adjustments apply only if the quest duration was equal to or longer than your initial confidence level.
-
-- Changes in difficulty do not affect the reward cap until the end of the current inertia phase.
-
-### 4.4 Starting Over
-
-- Re-estimation of initial CP is allowed if you reach 0 CP with no active quests.
-
-- Permitted after an extended break from the game.
-
-### 4.5 Multiple Quests
-
-- Simultaneous quests are allowed for different activities.
-
-- No overlapping quests for the same activity.
-
-### 4.6 No Overlapping Quests for the Same Activity
-
-- Days of completed and failed todos of a finished quest or any days of an unfinished quest cannot overlap with another quest for the same activity.
-
-- **Failed Quest Days:**
-
-  - Completed and failed todos cannot be overlapped.
-
-  - Remaining unfinished days are discarded and cannot be reported or rewarded.
-
-- **Inertia Days:**
-
-  - Reported inertia days cannot overlap with new quest days.
-
-  - Unreported inertia days are discarded if they would overlap with a new quest.
+- The longer they can be in terms of quest duration in days.
 
 ## 5. Progression and Growth
 
@@ -232,20 +210,22 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - You can add new activities at any time, specifying the exact amount and appropriate units.
 
-- **Modifying Activities:**
-
-  - Not allowed during quests.
-
-  - Allowed after quests conclude without retroactive effects.
+- Modifying Activities is not allowed during quests. It is allowed after quests conclude without retroactive effects.
 
 - Quest duration and difficulty cannot be altered once initiated.
 
 ## 7. Final Notes
 
-- The system motivates by rewarding consistency and introducing risks.
+- The system motivates by rewarding consistency and introducing risks of loosing the confidence you have built up over time. And who wants to loosethat? You certainly don't.
 
-- Balance quest difficulty and number with your real-life capacities to avoid overcommitment.
+- Balance quest difficulty and number with your real-life capacities to avoid overcommitment. 
+
+- Add recreative activities for rest and refreshment and take quests in those areas if you feel like you've pushed your limits too far.
 
 - View setbacks as learning opportunities.
 
-- Sharing progress with others can provide additional motivation and accountability.
+- Sharing progress with others can provide additional motivation and accountability. But you don't have to.
+
+---
+
+"*A journey of a thousand miles begins with a single step*"
