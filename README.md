@@ -44,7 +44,7 @@ Welcome to **PacerGame**, a gamified self-improvement system designed to help yo
 
 - **Creation:**
 
-  - **Specific Tasks with Defined Amounts:** When creating an activity, specify a specific amount using appropriate units such as minutes, pages, or kilometers. This defines the exact requirement for the activity.
+  - When adding an activity be as specific as you need, not too broad (so you won't be tempted to lie to youself), not too stringent (so you won't be overwhelmed). Specify an exact amount using appropriate units such as minutes, pages, kilometers or any other. This defines the exact requirement for the activity.
 
 - **Difficulty Assignment:**
 
